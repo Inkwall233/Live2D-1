@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		#wife {
+			position: absolute;
+			bottom: 0px;
+			left: 20px;
+
+		}
+		#wife img {
+				width: 200px;
+			}
+	</style>
+	
+</head>
+<body>
+	<div id="wife">
+		<div class="message">
+			可以轻轻点击和我交流呦！
+		</div>
+		<img id="wife1" src="mio.gif" >
+		
+	</div>
+	
+	<audio id="audio01" >
+		当前浏览器不支持audio
+	</audio>
+	<script type="text/javascript">
+		var wife = document.getElementById("wife");
+		var audio01 = document.getElementById("audio01");
+		var meg = document.getElementsByClassName('message')[0]
+		console.log(meg)
+		var musicArr = [
+			'./01.mp3',
+			'./02.mp3',
+			'./03.mp3',
+			'./04.mp3'
+		]
+		var megArr = [
+			'你好你好！恭喜发财~',
+			'hey你好，又见面啦~',
+			'嘿嘿，我家还蛮大的,要看看嘛~',
+			'hey，我是泠鸢yousa~'
+		]
+		var index;
+		wife.onclick = function(){
+			//随机获取声源
+			index = Math.round(Math.random() * 10) % musicArr.length
+			console.log(index)
+			audio01.src= musicArr[index]
+			audio01.play();
+			meg.innerHTML = megArr[index]
+		} 
+	</script>
+</body>
+</html>
